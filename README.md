@@ -6,9 +6,14 @@ This fork of the original repository adds support for OpenShift and a [UBI](http
 
 You can build this image yourself, or use the [prebuilt container image](https://quay.io/repository/bbrowning/openshift-github-runner).
 
-## Building the container
+## Building and pushing the container
 
-`podman build . -t quay.io/bbrowning/openshift-github-runner`
+Replace the image repository below with your own if you're not bbrowning.
+
+```sh
+podman build . -t quay.io/bbrowning/openshift-github-runner
+podman push quay.io/bbrowning/openshift-github-runner
+```
 
 ## Features
 
