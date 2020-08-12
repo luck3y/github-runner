@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: github-runner
-        image: sanderknape/github-runner:latest
+        image: quay.io/bbrowning/openshift-github-runner:latest
         env:
         - name: GITHUB_OWNER
           value: your-organization
@@ -27,3 +27,5 @@ spec:
             secretKeyRef:
               name: my-secret
               key: pat
+        - name: RUNNER_LABELS
+          value: openshift
