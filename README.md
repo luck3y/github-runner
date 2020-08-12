@@ -104,4 +104,4 @@ your OpenShift worker.
 Here's what things will look like if your repository's workflow is
 setup correctly to use this runner:
 
-~[Image of OpenShift GitHub Runner](https://raw.githubusercontent.com/bbrowning/github-runner/openshift/images/runner-success.png)
+![Image of OpenShift GitHub Runner](https://raw.githubusercontent.com/bbrowning/github-runner/openshift/images/runner-success.png)
