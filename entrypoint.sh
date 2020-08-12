@@ -1,4 +1,14 @@
 #!/bin/sh
+
+# Ensure our users owns all the .sh files - needed for runner
+# auto-updates
+for file in $(ls *.sh); do
+  if [ "${file}" != "entrypoint.sh" ]; then
+    cp ${file} ${file}.bak
+    mv ${file}.bak ${file}
+  fi
+done
+
 registration_url="https://github.com/${GITHUB_OWNER}"
 if [ -z "${GITHUB_REPOSITORY}" ]; then
     token_url="https://api.github.com/orgs/${GITHUB_OWNER}/actions/runners/registration-token"
@@ -31,6 +41,6 @@ remove() {
 trap 'remove; exit 130' INT
 trap 'remove; exit 143' TERM
 
-./run.sh "$*" &
+./bin/runsvc.sh "$*" &
 
 wait $!
