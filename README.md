@@ -99,3 +99,9 @@ Started running service
 All runners created in this way will have an `openshift` label that
 can be used as the `runs-on` value of a workflow to run actions on
 your OpenShift worker.
+
+
+Here's what things will look like if your repository's workflow is
+setup correctly to use this runner:
+
+~[Image of OpenShift GitHub Runner](https://raw.githubusercontent.com/bbrowning/github-runner/openshift/images/runner-success.png)
