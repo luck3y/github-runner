@@ -40,6 +40,8 @@ RUN yum install -y \
 
 RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo && yum install -y apache-maven && rm -rf /var/cache/yum
 
+COPY settings.xml /usr/share/apache-maven/conf/
+
 # Install jq
 RUN yum install \
   --disablerepo=* --enablerepo=epel -y \
