@@ -22,6 +22,7 @@ RUN yum install \
   && rm -rf /var/cache/yum
 
 RUN mkdir -p /opt/github
+RUN mkdir -p /.m2
 
 WORKDIR /opt/github
 
@@ -47,6 +48,8 @@ RUN chmod u+x ./entrypoint.sh
 
 # Fix up permissions for OpenShift random uids
 RUN chgrp -R 0 /opt/github && \
-    chmod -R g=u /opt/github
+    chmod -R g=u /opt/github && \
+    chgrp -R 0 /.m2 && \
+    chmod -R g=u /.m2
 
 ENTRYPOINT ["/opt/github/entrypoint.sh"]
