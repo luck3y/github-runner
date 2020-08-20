@@ -19,6 +19,7 @@ RUN yum install \
   --disablerepo=* --enablerepo=ubi-7 -y \
   hostname \
   iputils \
+  wget \
   && rm -rf /var/cache/yum
 
 RUN mkdir -p /opt/github
@@ -36,6 +37,8 @@ RUN curl -Ls https://github.com/actions/runner/releases/download/v${GITHUB_RUNNE
 RUN yum install -y \
   https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
   && rm -rf /var/cache/yum
+
+RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo && yum install -y apache-maven && rm -rf /var/cache/yum
 
 # Install jq
 RUN yum install \
